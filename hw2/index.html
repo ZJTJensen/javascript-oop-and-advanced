@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Ninja(name){
+            this.name = name;
+            this.health = 100;
+            let speed = 3;
+            let strength = 3;
+            this.getStrength = function(){
+                return strength;
+            }
+            this.sayName = function(){
+                console.log("My name is " + this.name);
+            }
+            this.showStats = function(){
+                console.log("HP: " + this.health)
+                console.log("Speed: " + speed)
+                console.log("Strength: " + strength)
+            }
+            this.drinkSake = function(){
+                this.health += 10;
+                console.log("You now have " + this.health)
+            }
+            this.punch = function(name){
+                if (name instanceof Ninja){
+                    strength = this.getStrength();
+                    for( i = 0; i < strength; i++){
+                    name.health-=5;}
+                }
+                
+                else{
+                    return "You can not atack a random cavilian";
+                }    
+            }
+            this.kick = function(name){
+                if (name instanceof Ninja){
+                    name.health -= 15;
+                }
+                else{
+                    return "You can not atack a random cavilian"
+                }
+            }
+        }
+    const blueNinja = new Ninja("Goemon");
+    const redNinja = new Ninja("Bill Gates");
+    redNinja.sayName();
+    redNinja.showStats();
+    blueNinja.punch(redNinja);
+    redNinja.showStats();
+        </script>
+</body>
+</html>

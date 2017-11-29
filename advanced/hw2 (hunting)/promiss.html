@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>
+<body>
+        <button id="someButton">This is Some Button</button>
+        <p id = "name"></p>
+    
+<script>
+    var button = document.getElementById("someButton")
+// add a DOM eventListener to that variable.
+button.addEventListener("click", click)
+
+// Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+
+function displayName(resolve, reject) {
+    let data= ($.get("https://api.github.com/users/ZJTJensen"))
+    resolve(data);
+}
+function click(){ 
+var data = new Promise(function(resolve,reject){
+    displayName(resolve,reject); // kind of like a shiny callback
+});
+    data.then(function(data){
+        document.getElementById("name").innerHTML = (data.login);
+    })
+  
+  
+}
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

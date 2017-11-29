@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Ninja(name){
+            this.name = name;
+            this.health = 100;
+            let speed = 3;
+            let strength = 3;
+            this.sayName = function(){
+                console.log("My name is " + this.name);
+            }
+            this.showStats = function(){
+                console.log("HP: " + this.health)
+                console.log("Speed: " + speed)
+                console.log("Strength: " + strength)
+            }
+            this.drinkSake = function(){
+                this.health += 10;
+                console.log("You now have " + this.health)
+            }
+        }
+    const ninja1 = new Ninja("Nick");
+    ninja1.sayName();
+    ninja1.showStats();
+    ninja1.drinkSake();
+    ninja1.showStats();
+        </script>
+</body>
+</html>

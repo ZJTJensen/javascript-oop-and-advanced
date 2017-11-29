@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>
+   
+</head>
+<body>
+        <button id = "someIdForSomeButton">Im a button</button>
+        <button id = "someOtherIdForSomeOtherButton">Im a button</button>
+        <script>
+                var $Dojo = (function () {
+                    function create(id){
+                        element=document.getElementById(id);
+                        return new objecter(element);
+                    }
+                    function objecter(element){
+                        this.element=(element);
+                        return this;
+                    }
+                    objecter.prototype.clack= function(callback){
+                        this.element.addEventListener('click', callback);
+                    }
+                    objecter.prototype.hover= function(callback){
+                        this.element.addEventListener('mouseover', callback);
+                    }
+                    objecter.prototype.hoveroff= function(callback){
+                        this.element.addEventListener('mouseout', callback);
+                    }
+                    return create;
+                    })();
+                    $Dojo('someIdForSomeButton').clack(function() {alert("YAY")});
+
+                    $Dojo('someOtherIdForSomeOtherButton').hover(function() {alert("YAY")});
+                    $Dojo('someOtherIdForSomeOtherButton').hoveroff(function() {alert("BOOTOOBIG")});
+                    
+                </script>
+
+</body>
+</html>
